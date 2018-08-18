@@ -1,0 +1,32 @@
+.bg-cust-color-green {
+    background-color: #73d700!important;
+}
+
+h3 {
+    color: white;
+}
+
+#schedule_departure {
+    display: none;
+}
+
+#source_dest_header {
+    text-align: center;
+    color: black;
+}
+
+#book_dialog, #alter_dialog {
+    display: none;
+}
+
+.table .table-striped tr:last-child {
+    display:none;
+}
+
+#tabs-2 div:nth-child(3) div {
+    width: 50%;
+}
+
+#alter_dialog .form-group {
+    width: 50%;
+}

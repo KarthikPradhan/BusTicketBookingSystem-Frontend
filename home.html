@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Bus Ticket Booking System</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/action.js"></script>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-light bg-cust-color-green">
+    <a class="navbar-brand" href="#">
+      <h3 class="center">Bus Ticket Booking System</h3>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    </div>
+  </nav>
+
+  <div class="container" style="margin-top:30px">
+    <div id="tabs">
+      <ul>
+        <li>
+          <a href="#tabs-1">Book Now</a>
+        </li>
+        <li>
+          <a href="#tabs-2">Departure Schedule </a>
+        </li>
+        <li>
+          <a href="#tabs-3">Edit/Delete Departure Schedule</a>
+        </li>
+      </ul>
+      <div id="tabs-1">
+        <form>
+          <div class="input-group mb-3">
+            <div class="input-group-append">
+              <span class="glyphicon glyphicon-map-marker"></span>
+            </div>
+            <input type="text" class="form-control" placeholder="From" id="from" name="from">
+            <div class="input-group-append">
+              <span class="glyphicon glyphicon-map-marker"></span>
+            </div>
+            <input type="text" class="form-control" placeholder="To" id="to" name="to">
+            <div>
+              <p>
+                <input type="text" class="form-control" placeholder="Departure" id="datepicker">
+              </p>
+            </div>
+            <div>
+              <button type="button" class="btn btn-warning" id="searchBus">Search</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div id="tabs-2">
+        <form>
+          <div class="input-group mb-3">
+            <input type="number" class="form-control" placeholder="Bus Number" id="bus_id">
+            <input type="number" class="form-control" placeholder="Cost" id="travel_cost">
+          </div>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="From" id="from_city" name="from_city">
+            <input type="text" class="form-control" placeholder="To" id="to_city" name="to_city">
+          </div>
+          <div class="input-group mb-3">
+            <div>
+              <p>
+                <input type="text" class="form-control" placeholder="Departure" id="datepicker_schedule">
+              </p>
+            </div>
+            <input type="text" class="form-control" placeholder="Departure (HH:MM:SS)" id="time_of_departure">
+          </div>
+          <div class="input-group mb-3">
+            <button type="button" class="btn btn-block btn-warning" id="schedule_departure_btn">Submit</button>
+          </div>
+        </form>
+      </div>
+      <div id="tabs-3">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Bus Number</th>
+              <th>From</th>
+              <th>To</th>
+              <th>Date & Time</th>
+              <th>Cost</th>
+              <th>Book</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- End of tabs div -->
+    <br>
+    <div id="schedule_departure">
+      <div>
+        <h3 id="source_dest_header"></h3>
+      </div>
+      <div>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Bus Number</th>
+              <th>From</th>
+              <th>To</th>
+              <th>Date & Time</th>
+              <th>Cost</th>
+              <th>Book</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- End of scheduled departure -->
+    <div id="book_dialog" title="Book a Seat">
+      <form>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="First Name" id="first_name" name="first_name">
+          <input type="text" class="form-control" placeholder="Last Name" id="last_name" name="last_name">
+          <input type="number" class="form-control" placeholder="Phone Number" id="phone_number" name="phone_number">
+          <input type="email" class="form-control" placeholder="Email" id="email_id" name="email_id">
+        </div>
+      </form>
+    </div>
+    <!-- End of book dialog -->
+    <div id="alter_dialog" title="Edit or Delete Bus(es)">
+      <form>
+        <div class="input-group mb-3">
+          <div class="form-group">
+            <label for="bus_id_ed">Bus Number</label>
+            <input type="number" class="form-control" placeholder="Bus Number" id="bus_id_ed">
+          </div>
+          <div class="form-group">
+            <label for="travel_cost_ed">Cost</label>
+            <input type="number" class="form-control" placeholder="Cost" id="travel_cost_ed">
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <div class="form-group">
+            <label for="from_city_ed">From</label>
+            <input type="text" class="form-control" placeholder="From" id="from_city_ed" name="from_city_ed">
+          </div>
+          <div class="form-group">
+            <label for="to_city_ed">To</label>
+            <input type="text" class="form-control" placeholder="To" id="to_city_ed" name="to_city_ed">
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <div class="form-group">
+            <label for="datepicker_schedule_ed">Departure</label>
+            <p>
+              <input type="text" class="form-control" placeholder="Departure" id="datepicker_schedule_ed">
+            </p>
+          </div>
+          <div class="form-group">
+              <label for="datepicker_schedule_ed">Departure (HH:MM:SS)</label>
+            <input type="text" class="form-control" placeholder="Departure (HH:MM:SS)" id="time_of_departure_ed">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>
