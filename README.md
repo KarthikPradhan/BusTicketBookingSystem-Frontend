@@ -1,6 +1,6 @@
 # BusTicketBookingSystem-Frontend
 This is a sample user interface which can be used to run and demonstrate BusTicketBookingSystem-Backend application.
-Back-end application can be found at https://github.com/KarthikPradhan/BusTicketBookingSystem-Backend/
+The back-end application can be found at https://github.com/KarthikPradhan/BusTicketBookingSystem-Backend/
 
 # Requirements
 * HTML5
